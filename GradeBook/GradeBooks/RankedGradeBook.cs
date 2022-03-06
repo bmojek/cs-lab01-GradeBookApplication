@@ -12,7 +12,7 @@ namespace GradeBook.GradeBooks
         }
         public override char GetLetterGrade(double averageGrade)
         {
-            return base.GetLetterGrade(averageGrade);
+            return base.GetLetterGrade(averageGrade); //todo
         }
         public override void CalculateStatistics()
         {
@@ -27,6 +27,22 @@ namespace GradeBook.GradeBooks
             else
             {
                 base.CalculateStatistics();
+            }
+        }
+        public override void CalculateStudentStatistics(string name)
+        {
+            int i = 0;
+            foreach (var student in Students)
+            {
+                i++;
+            }
+            if (i < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students.");
+            }
+            else
+            {
+                base.CalculateStudentStatistics(name);
             }
         }
     }
